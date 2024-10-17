@@ -6,10 +6,16 @@ import { config } from "dotenv";
 config();
 
 const app = express();
+
 app.use(express.json());
+app.use(express.static("public"));
 
 // Use bus routes
 app.use("/api/buses", busRoutes);
+
+app.get("/", (req, res) => {
+  res.sendFile("index");
+});
 
 // Handle 404
 app.use((req, res) => {

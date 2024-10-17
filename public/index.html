@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Bus Tracker</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { height: 100vh; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <script>
+        const coOrdinates = [
+            [20.01368210981096, 73.82226139524143],
+            [19.988808856586594, 73.79980692962988],
+            [19.99099708564528, 73.7994633013361],
+            [19.988876017531727, 73.79978053912325],
+            [19.980807228782897, 73.80607486455554],
+            [19.94484100814329, 73.83558689523976],
+            [19.95627428137107, 73.82902449524003],
+            [19.95379650527555, 73.83727099339046],
+            [19.975335348206865, 73.84123271058309],
+            [19.97918602971767, 73.84259731058317],
+            [20.01368210981096, 73.82226139524143]
+        ];
+
+        let currentIndex = 0; // Start from the first coordinate
+
+        // Initialize the map and set its view to a starting location
+        const map = L.map('map').setView([20.01, 73.82], 13); // Coordinates of your college
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Custom bus icon (you can replace with a bus image)
+        const busIcon = L.icon({
+            iconUrl: 'icon.jpg',  // URL for bus icon (replace if necessary)
+            iconSize: [80, 50],  // size of the icon
+            iconAnchor: [25, 25],  // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -25]  // point from which the popup should open relative to the iconAnchor
+        });
+
+        // Initial bus marker
+        const busMarker = L.marker(coOrdinates[0], { icon: busIcon }).addTo(map)
+            .bindPopup('Bus is here').openPopup();
+
+        // Function to update bus position
+        function updateBusPosition() {
+            // Update marker position using the next set of coordinates
+            busMarker.setLatLng(coOrdinates[currentIndex])
+                .bindPopup(`Bus is at: [${coOrdinates[currentIndex][0]}, ${coOrdinates[currentIndex][1]}]`).openPopup();
+
+            // Increment index and reset if at the end of array
+            currentIndex = (currentIndex + 1) % coOrdinates.length;
+
+            // Set a timeout to update the position again after 2 seconds
+            setTimeout(updateBusPosition, 2000);  // 2 seconds = 2000 milliseconds
+        }
+
+        // Start the update loop
+        setTimeout(updateBusPosition, 2000);
+
+
+        // Function to smoothly move the bus marker between two positions
+        function moveBusTo(newLat, newLng, duration) {
+            const startLatLng = busMarker.getLatLng();
+            const endLatLng = L.latLng(newLat, newLng);
+
+            const startTime = performance.now();
+            function animate(time) {
+                const t = Math.min(1, (time - startTime) / duration);  // Calculate the interpolation factor (0 to 1)
+                const lat = startLatLng.lat + (endLatLng.lat - startLatLng.lat) * t;
+                const lng = startLatLng.lng + (endLatLng.lng - startLatLng.lng) * t;
+                busMarker.setLatLng([lat, lng]);
+
+                if (t < 1) {
+                    requestAnimationFrame(animate);  // Continue animating if t < 1
+                } else {
+                    map.setView([newLat, newLng], map.getZoom());  // Update map view to follow the bus
+                    busMarker.bindPopup(`Bus is at: [${newLat}, ${newLng}`).openPopup();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+    </script>
+<script>
+function fetchBusLocation() {
+    fetch('/api/bus-location/')
+        .then(response => response.json())
+        .then(data => {
+            const { latitude, longitude } = data;
+            moveBusTo(latitude, longitude, 2000);  // Move the bus to the new location
+        })
+        .catch(error => console.error('Error fetching bus location:', error));
+}
+
+// Call the fetchBusLocation function every 10 seconds to update the bus location
+setInterval(fetchBusLocation, 10000);
+</script>
+</body>
+</html>
