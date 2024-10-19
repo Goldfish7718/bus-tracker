@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240vh;
+    margin: 0;
+    background-image: url(kk.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 800px;
+    background: #ffffff;
+    opacity: 0.9;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+    position: absolute;
+    top: 90px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #705C53;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #705C53;
+}
+
+.form-control {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 10px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #705C53;
+    box-shadow: none;
+}
+
+.form-check-label {
+    font-weight: normal;
+    color: #705C53;
+}
+
+.btn-primary {
+    background-color: #705C53;
+    border-color: #534640;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #342c29;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button {
+    background-color: #705C53; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 5px 10px; /* Reduced padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 12px; /* Smaller font size */
+    margin: 4px 2px; /* Small margins */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    width: auto; /* Ensure the width adjusts based on content */
+}
+
+button:hover {
+    background-color: #342c29; /* Darker green on hover */
+}
+
+.bg{
+    position: absolute;
+    top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.bus-name{
+    padding: 0 15px;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.busbuddy{
+    margin-left: 40px;
+    font-size: 55px;
+    color: antiquewhite;
+    letter-spacing: 5px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18vh;
+    width: 100vw;
+}
+
+.nav-content{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav-content li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: beige;
+    opacity: 0.9;
+    border-radius: 15px 0px;
+}
+
+.nav-content li a:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+.content{
+    padding: 0 15px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}

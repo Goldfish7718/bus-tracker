@@ -1,29 +1,39 @@
 import express from "express";
 import mongoose from "mongoose";
-import busRoutes from "./routes/BusRoutes.js";
+import studentRoutes from "./routes/studentRoutes.js";
 import { config } from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const PORT = process.env.PORT || 3000;
 
 config();
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(express.json());
 app.use(express.static("public"));
 
-// Use bus routes
-app.use("/api/buses", busRoutes);
+app.use("/api/students", studentRoutes);
 
 app.get("/", (req, res) => {
   res.sendFile("index");
 });
 
-// Handle 404
+app.get("/form", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "form.html"));
+});
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "admin.html"));
+});
+
 app.use((req, res) => {
   res.status(404).json({ message: "Not Found" });
 });
-
-// Start server
-const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   mongoose

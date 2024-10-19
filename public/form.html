@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="formstyle.css">
+
+    <script src="form.js" defer></script>
+</head>
+<body>
+    <div class="bg">
+    <nav class="navbar">
+        <div class="bus-name">
+            <p class="busbuddy">BusSeva</p>
+        </div>
+        <div class="navbar-content">
+            <ul class="nav-content">
+                <li class="content"><a href="index.html">Home</a></li>
+                <li class="content"><a href="form.html">Form & Fees</a></li>
+                <li class="content"><a href="bus routes.html">Bus Routes</a></li>
+                <li class="content"><a href="Driver Details.html">Drivers Details</a></li>
+                <li class="content"><a href="about.html">About Us</a></li>
+                <li class="content"><a href="login.html">Log in/Sign up</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+    <!-- Google Translate Widget -->
+  <div id="google_translate_element"></div>
+    <div class="container mt-5">
+        <h2 class="text-center">REGISTRATION FORM</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="DOB">DOB</label>
+                <input type="date" class="form-control" id="DOB" name="DOB" required>
+            </div>
+            <div class="form-group">
+                <label for="college_name">College Name</label>
+                <input type="text" class="form-control" id="college_name" name="college_name" placeholder="Enter your college name" required>
+            </div>
+            <div class="form-group">
+                <label for="time">College Time</label>
+                <input type="text" class="form-control" id="clgtime" name="clgtime" placeholder="Enter your college time" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <select name="course" id="course" class="form-control" required>
+                    <option>Select your course of study</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <input type="text" class="form-control" id="branch" placeholder="Enter your branch" name="branch" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <select name="year" id="year" class="form-control" required>
+                    <option>Select your year of study</option>
+                    <option value="fy">FY</option>
+                    <option value="sy">SY</option>
+                    <option value="ty">TY</option>
+                    <option value="Be">Final Year</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" name="address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="stop">Stop</label>
+                <select name="stop" id="stop" class="form-control" required>
+                    <option>Select your stop</option>
+                </select>
+            </div>
+            <!--temporary bus fare code-->
+            <div class="form-group">
+                <label for="stopDistance">Select your stop distance (in km):</label>
+                <select id="stopDistance" name="stopDistance" class="form-control" required>
+                    <option>Select your distance</option>
+                    <option value="under10">Under 10 km</option>
+                    <option value="10to15">10 to 15 km</option>
+                    <option value="15to20">15 to 20 km</option>
+                </select>
+                <br><br>
+                <button type="button" onclick="calculateFare()" class="button">Calculate Fare</button>
+            </form>
+        
+            <div id="fareDisplay"></div>
+    
+            </div>
+            <div class="form-group">
+                <label for="Student_MOB">Student MOB</label>
+                <input type="number" class="form-control" id="Student_MOB" placeholder="Enter your mobile number" name="Student_MOB" required>
+            </div>
+            <div class="form-group">
+                <label for="Parent">Parent's MOB</label>
+                <input type="number" class="form-control" id="Parent_MOB" placeholder="Enter mobile number" name="Parent_MOB" required>
+            </div>
+            <div class="form-group">
+                <label for="guardian-name">Guardian's/Parent's Name</label>
+                <input type="text" class="form-control" id="Parent_name" placeholder="Enter your guardian's/Parent's name" name="Parent_name" required>
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="consent" required>
+                <label class="form-check-label" for="consent">I give my consent to all the rules and regulations related to the bus service. I confirm that I have read and understood them and agree to abide by them.</label>
+            </div>
+            <div id="google_translate_element">
+            </div>
+
+            <button onclick="requestRegistration()" class="btn btn-primary">Make Payment</button>
+        </form>
+    </div>
+      
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

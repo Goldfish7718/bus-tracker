@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admindashboardstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>BusSeva</h1>
+        </div>
+
+        <ul>
+            <li>&nbsp; <span><a href="admindashboard.html">Dashboard</a></span> </li>
+            <li>&nbsp;<span><a href="">Students</a></span> </li>
+            <li>&nbsp;<span><a href="">Drivers</a></span> </li>
+            <li>&nbsp;<span><a href="">Buses Available</a></span> </li>
+            <li>&nbsp; <span><a href="">Forms</a></span></li>
+            <li>&nbsp;<span><a href="">Settings</a></span> </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Search..">
+                    <button type="submit"><img src="search.jpg" alt=""></button>
+                </div>
+
+                <div class="user">
+                    <img src="notifications.jpg" alt="">
+                    <div class="img-case">
+                        <img src="user.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1 id="studentCount"></h1>
+                        <h3>Students</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>15</h1>
+                        <h3>Drivers</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>10</h1>
+                        <h3>Buses Available</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h2>Morning</h2>
+                        <h2>Regular</h2>
+                        <h3>shift</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="content-2">
+                <div class="recent-payments">
+                    <div class="title">
+                        <h2>Recent Payments</h2>
+                        <!-- <a href="#" class="btn">View All</a> -->
+                    </div>
+                    <table id="table">
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <script>
+        let students = []
+        const fetchStudents = async () => {
+            try {
+                const response = await fetch('/api/students/get');
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                students = await response.json();
+
+                const table = document.getElementById("table")
+                const studentCount = document.getElementById("studentCount")
+
+                table.innerHTML = `
+                    <tr>
+                        <th>Name</th>
+                        <th>College</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                `;
+
+                studentCount.innerText = students.length
+
+                students.forEach(student => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${student.name}</td>
+                        <td>${student.college_name}</td>
+                        <td>${student.amount}</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    `;
+                    table.appendChild(row);
+                });
+
+                
+                console.log(students);
+            } catch (error) {
+                console.error('Error fetching students:', error);
+            }
+        };
+
+        fetchStudents()
+    </script>
+</body>
+
+</html>
