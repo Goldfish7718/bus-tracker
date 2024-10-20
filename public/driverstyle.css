@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background-image: url(kk.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bus-name{
+    padding: 0 15px;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.busbuddy{
+    margin-left: 40px;
+    font-size: 55px;
+    color: antiquewhite;
+    letter-spacing: 5px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18vh;
+    width: 100vw;
+}
+
+.nav-content{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav-content li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: beige;
+    opacity: 0.9;
+    border-radius: 15px 0px;
+}
+
+.nav-content li a:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+.content{
+    padding: 0 15px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+/*.card{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1; 
+    
+}*/
+
+table{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 500px;
+    background-color:white;
+    opacity: 0.8;
+    text-align: center;
+    border-spacing: 0;
+    border-radius: 12px 12px 12px 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(32, 32, 32, .3);
+}
+
+th,td{
+    padding: 10px 15px;
+}
+
+th{
+background-color: beige;
+color: black;
+text-transform: uppercase;
+font-family: 'Cambria', sans-serif;
+}
+
+td{
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    color: black;
+    text-align: center;
+}

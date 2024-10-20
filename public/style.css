@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.bg{
+    background: url(kk.jpg) no-repeat center center/cover ;
+   /* opacity: 0.8;*/
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+}
+
+.bus-name{
+    padding: 0 15px;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.busbuddy{
+    margin-left: 40px;
+    font-size: 55px;
+    color: antiquewhite;
+    letter-spacing: 5px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18vh;
+    width: 100vw;
+}
+
+.nav-content{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav-content li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: beige;
+    opacity: 0.9;
+    border-radius: 15px 0px;
+}
+
+.nav-content li a:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+.content{
+    padding: 0 15px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+.Body-Content{
+    height: 35vh;
+    width: 100vw;
+    position: relative;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-name-1{
+    color: white;
+    text-shadow: 0 0 30px black;
+    font-size: 55px;
+    position: relative;
+    left: 15px;
+    top: 50px;
+    font-weight: bold;
+    background-color: #999;
+    opacity: 0.9;
+    border-radius: 0px 30px;
+    padding: 10px;
+}
+
+.header-name-2{
+    color: white;
+    text-shadow: 0 0 30px black;
+    font-size: 55px;
+    position: relative;
+    left: 205px;
+    font-weight: bold;
+    background-color: #999;
+    width: 19vw;
+    opacity: 0.9;
+    border-radius: 0px 30px;
+    padding: 10px;
+}

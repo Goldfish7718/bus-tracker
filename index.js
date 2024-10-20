@@ -23,12 +23,32 @@ app.get("/", (req, res) => {
   res.sendFile("index");
 });
 
+app.get("/tracker", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "tracker.html"));
+});
+
+app.get("/busroutes", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "busroutes.html"));
+});
+
 app.get("/form", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "form.html"));
 });
 
 app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "admin.html"));
+});
+
+app.get("/driver-details", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "driverdetails.html"));
+});
+
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "about.html"));
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
 app.use((req, res) => {

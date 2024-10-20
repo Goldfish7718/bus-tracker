@@ -1,0 +1,170 @@
+/* General Styles */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Background Styling */
+.bg {
+    background: url('kk.jpg') no-repeat center center/cover;
+   /* opacity: 0.8;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    z-index: -1; /* Ensure background stays behind content */
+}
+
+/* Bus Name Styles */
+.bus-name {
+    padding: 0 15px;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+.busbuddy {
+    margin-left: 40px;
+    font-size: 55px;
+    color: antiquewhite;
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navbar Styling */
+.bus-name{
+    padding: 0 15px;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.busbuddy{
+    margin-left: 40px;
+    font-size: 55px;
+    color: antiquewhite;
+    letter-spacing: 5px;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18vh;
+    width: 100vw;
+}
+
+.nav-content{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav-content li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: beige;
+    opacity: 0.9;
+    border-radius: 15px 0px;
+}
+
+.nav-content li a:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+.content{
+    padding: 0 15px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+
+/* About and Contact Section Styling */
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Padding to prevent overlap */
+#about, #contact {
+    margin-top: 20vh; /* Added to push content down, adjust based on your navbar height */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+/* About Section */
+#about p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+#contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contact ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#contact ul li a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+#contact ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .busbuddy {
+        font-size: 40px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
