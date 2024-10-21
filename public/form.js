@@ -160,6 +160,10 @@ async function requestRegistration() {
 
   if (response.ok) {
     alert("Registration successful");
+
+    document.getElementById("registrationForm").reset();
+    document.getElementById("registrationForm2").reset();
+    document.getElementById("fareDisplay").innerText = "";
   } else {
     alert("Failed to register. Please try again.");
   }

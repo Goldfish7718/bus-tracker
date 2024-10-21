@@ -83,7 +83,7 @@
                     <option>Select your stop</option>
                 </select>
             </div>
-            <!--temporary bus fare code-->
+        <!--temporary bus fare code-->
             <div class="form-group">
                 <label for="stopDistance">Select your stop distance (in km):</label>
                 <select id="stopDistance" name="stopDistance" class="form-control" required>
@@ -93,11 +93,10 @@
                     <option value="15to20">15 to 20 km</option>
                 </select>
                 <br><br>
-                <button type="button" onclick="calculateFare()" class="button">Calculate Fare</button>
-            </form>
-        
+            <button type="button" onclick="calculateFare()" class="button">Calculate Fare</button>
+        </form>
+        <form id="registrationForm2">
             <div id="fareDisplay"></div>
-    
             </div>
             <div class="form-group">
                 <label for="Student_MOB">Student MOB</label>
@@ -115,7 +114,7 @@
                 <input type="checkbox" class="form-check-input" id="consent" required>
                 <label class="form-check-label" for="consent">I give my consent to all the rules and regulations related to the bus service. I confirm that I have read and understood them and agree to abide by them.</label>
             </div>
-            <div id="google_translate_element">
+                <div id="google_translate_element">
             </div>
 
             <button onclick="requestRegistration()" class="btn btn-primary">Make Payment</button>
