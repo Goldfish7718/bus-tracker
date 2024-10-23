@@ -10,7 +10,7 @@ body {
 
 /* Background Styling */
 .bg {
-    background: url('kk.jpg') no-repeat center center/cover;
+    background: url('../images/kk.jpg') no-repeat center center/cover;
    /* opacity: 0.8;*/
     position: fixed;
     top: 0;

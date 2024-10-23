@@ -28,19 +28,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/tracker", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "tracker.html"));
+  res.sendFile(path.join(__dirname, "public", "tracker/tracker.html"));
 });
 
 app.get("/busroutes", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "busroutes.html"));
+  res.sendFile(path.join(__dirname, "public", "busroutes/busroutes.html"));
 });
 
 app.get("/form", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "form.html"));
+  res.sendFile(path.join(__dirname, "public", "form/form.html"));
 });
 
 app.get("/admin", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "admin.html"));
+  res.sendFile(path.join(__dirname, "public", "admin/admin.html"));
 });
 
 app.get("/driver-details", (req, res) => {
@@ -48,11 +48,11 @@ app.get("/driver-details", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "about.html"));
+  res.sendFile(path.join(__dirname, "public", "about/about.html"));
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "login.html"));
+  res.sendFile(path.join(__dirname, "public", "login/login.html"));
 });
 
 app.use((req, res) => {

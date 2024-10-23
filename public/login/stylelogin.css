@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(kk.jpg);
+    background-image: url(../images/kk.jpg);
     background-size: cover;
     /*opacity: 0.9;*/
 }
