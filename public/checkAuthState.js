@@ -10,4 +10,14 @@ function checkAuthState() {
   }
 }
 
+document
+  .getElementById("logoutButton")
+  .addEventListener("click", requestLogOut);
+
+function requestLogOut(event) {
+  event.preventDefault();
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "/login";
+}
+
 checkAuthState();

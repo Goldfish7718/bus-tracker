@@ -6,9 +6,10 @@
 }
 
 body{
-    background-image: url(../images/kk.jpg);
+    /*background-image: url(../images/kk.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    background-color: antiquewhite;
 }
 
 .bus-name{
@@ -21,7 +22,7 @@ body{
 .busbuddy{
     margin-left: 40px;
     font-size: 55px;
-    color: antiquewhite;
+    color: rgb(249, 207, 153);
     letter-spacing: 5px;
 }
 
@@ -43,7 +44,7 @@ body{
     text-decoration: none;
     color: rgb(0, 0, 0);
     padding: 10px;
-    background-color: beige;
+    background-color: rgb(251, 224, 189);
     opacity: 0.9;
     border-radius: 15px 0px;
 }
