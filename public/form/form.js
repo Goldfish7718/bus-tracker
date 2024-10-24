@@ -168,3 +168,5 @@ async function requestRegistration() {
     alert("Failed to register. Please try again.");
   }
 }
+
+checkAuthState();

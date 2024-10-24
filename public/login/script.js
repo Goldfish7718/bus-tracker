@@ -2,6 +2,10 @@ const wrapper = document.querySelector(".wrapper");
 const resgisterLink = document.querySelector(".register-link");
 const loginLink = document.querySelector(".login-link");
 
+document
+  .getElementById("signUpButton")
+  .addEventListener("click", requestSignUp);
+
 resgisterLink.onclick = () => {
   wrapper.classList.add("active");
 };
@@ -10,7 +14,8 @@ loginLink.onclick = () => {
   wrapper.classList.remove("active");
 };
 
-async function requestSignUp() {
+async function requestSignUp(event) {
+  event.preventDefault();
   const formData = {
     username: document.getElementById("signUpUsername").value,
     password: document.getElementById("signUpPassword").value,
@@ -18,7 +23,7 @@ async function requestSignUp() {
 
   console.log(formData);
 
-  const response = await fetch("/api/users/signup", {
+  let response = await fetch("/api/users/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,8 +32,13 @@ async function requestSignUp() {
   });
 
   if (response.ok) {
-    alert("Registration succesfull");
+    response = await response.json();
+    console.log(response);
+
+    localStorage.setItem("isLoggedIn", true);
+
+    window.location.href = "/";
   } else {
-    alert("An Error occured");
+    alert(response.message);
   }
 }
